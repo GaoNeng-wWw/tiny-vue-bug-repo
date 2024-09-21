@@ -30,6 +30,11 @@ export default defineConfig({
     },
   },
   compilation: {
+    output:{
+      path: 'dist',
+      filename: 'assets/[name].[hash].[ext]',
+      assetsFilename: 'static/[resourceName].[ext]'
+    },
     define: {
       'process.env': {...process.env},
       BUILD_TOOLS: "'VITE'"

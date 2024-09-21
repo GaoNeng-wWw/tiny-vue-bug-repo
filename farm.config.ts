@@ -21,7 +21,7 @@ export default defineConfig({
         executor(params) {
           if(params.moduleId.endsWith('css')) {
             return {
-              content: params.content.replace(/(.[^;])\}/gm, '$1;}'),
+              content: params.content.replace(/(.*?[^;])\s*}/gm, '$1;'),
             }
           }
           return {

@@ -19,7 +19,7 @@ export default defineConfig({
           resolvedPaths: ['']
         },
         executor(params) {
-          if(params.moduleId.endsWith('css')) {
+          if(params.moduleId.endsWith('css') && params.moduleId.includes('node_modules')) {
             return {
               content: params.content.replace(/(.*?[^;])\s*}/gm, '$1;'),
             }

@@ -20,9 +20,8 @@ export default defineConfig({
         },
         executor(params) {
           if(params.moduleId.endsWith('css')) {
-            const reg = /(.)\}/gm;
             return {
-              content: params.content.replace(reg, '$1;'),
+              content: params.content.replace(/(.[^;])\}/gm, '$1;}'),
             }
           }
           return {
